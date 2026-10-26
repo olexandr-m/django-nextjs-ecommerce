@@ -1,0 +1,36 @@
+FROM python:3.15-slim-bookworm
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        bash \
+        build-essential \
+        gettext \
+        libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY backend/requirements ./requirements
+
+RUN pip install -r requirements/dev.txt
+
+COPY _docker/backend/entrypoint.sh /entrypoint
+COPY _docker/backend/start.dev.sh /start-dev
+COPY _docker/backend/start.prod.sh /start-prod
+COPY _docker/backend/celery/worker.sh /start-celeryworker
+COPY _docker/backend/celery/beat.sh /start-celerybeat
+COPY _docker/backend/celery/flower.sh /start-flower
+
+RUN sed -i 's/\r$//g' /entrypoint /start-dev /start-prod /start-celeryworker /start-celerybeat /start-flower \
+    && chmod +x /entrypoint /start-dev /start-prod /start-celeryworker /start-celerybeat /start-flower
+
+COPY backend .
+
+EXPOSE 8000
+
+ENTRYPOINT ["/entrypoint"]

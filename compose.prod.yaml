@@ -1,0 +1,164 @@
+name: django-project-prod
+
+x-backend-service: &backend-service
+  image: django-project/backend:prod
+  working_dir: /app
+  env_file:
+    - ./backend/.envs/.env.production
+  volumes:
+    - django_staticfiles:/app/staticfiles
+    - django_mediafiles:/app/mediafiles
+  depends_on:
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+  networks:
+    - application
+  restart: unless-stopped
+  init: true
+  security_opt:
+    - no-new-privileges:true
+
+services:
+  backend:
+    <<: *backend-service
+    build:
+      context: .
+      dockerfile: ./_docker/backend/Dockerfile.prod
+    command:
+      - /start-prod
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../_docker/frontend/Dockerfile.prod
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_BACKEND_URL: ${NEXT_PUBLIC_BACKEND_URL}
+    image: django-project/frontend:prod
+    env_file:
+      - ./frontend/.env.production
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./_docker/nginx/Dockerfile.prod
+      args:
+        NGINX_CONF: ${NGINX_CONF:-default.prod.http.conf}
+    image: django-project/nginx:prod
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - django_staticfiles:/app/staticfiles:ro
+      - django_mediafiles:/app/mediafiles:ro
+      - nginx_logs:/var/log/nginx
+      - certbot_webroot:/var/www/certbot
+      - certbot_etc:/etc/letsencrypt:ro
+    depends_on:
+      backend:
+        condition: service_started
+      frontend:
+        condition: service_started
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+
+  celeryworker:
+    <<: *backend-service
+    command:
+      - /start-celeryworker
+
+  celerybeat:
+    <<: *backend-service
+    command:
+      - /start-celerybeat
+
+  certbot:
+    image: certbot/certbot:latest
+    command:
+      - sh
+      - -c
+      - while :; do certbot renew --webroot --webroot-path=/var/www/certbot --quiet; sleep 12h; done
+    volumes:
+      - certbot_webroot:/var/www/certbot
+      - certbot_etc:/etc/letsencrypt
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./_docker/postgres/Dockerfile
+    image: django-project/postgres:prod
+    env_file:
+      - ./_docker/env/postgres.prod.env
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+
+  redis:
+    image: redis:8-alpine
+    command:
+      - redis-server
+      - --appendonly
+      - "yes"
+      - --appendfsync
+      - everysec
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  application:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  django_staticfiles:
+  django_mediafiles:
+  nginx_logs:
+  certbot_webroot:
+  certbot_etc:

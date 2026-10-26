@@ -1,0 +1,50 @@
+FROM node:24-alpine AS deps
+
+WORKDIR /app
+
+COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
+
+RUN if [ -f package-lock.json ]; then npm ci; \
+    elif [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm install --frozen-lockfile; \
+    else npm install; \
+    fi
+
+FROM node:24-alpine AS build
+
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_BACKEND_URL
+
+ENV NEXT_TELEMETRY_DISABLED=1 \
+    NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL} \
+    NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
+
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+RUN mkdir -p public \
+    && npm run build
+
+FROM node:24-alpine AS runtime
+
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000 \
+    HOSTNAME=0.0.0.0
+
+WORKDIR /app
+
+RUN addgroup --system --gid 1001 nodejs \
+    && adduser --system --uid 1001 nextjs
+
+COPY --from=build /app/public ./public
+COPY --from=build --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=build --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]

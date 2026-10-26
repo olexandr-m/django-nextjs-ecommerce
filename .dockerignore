@@ -1,0 +1,57 @@
+# --- Git / repo metadata ---
+.git
+.gitignore
+.gitattributes
+.github/
+
+# --- Docker / local orchestration ---
+.dockerignore
+compose*.yml
+compose*.yaml
+docker-compose*.yml
+docker-compose*.yaml
+Makefile
+
+# --- OS / editor noise ---
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+.fleet/
+
+# --- Environment / secrets ---
+.env
+.env.*
+!backend/.env.example
+!frontend/.env.example
+_docker/env/*.env
+!_docker/env/*.example
+
+# --- Python ---
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/htmlcov/
+backend/.coverage
+
+# --- Django runtime ---
+backend/staticfiles/*
+!backend/staticfiles/.gitkeep
+backend/mediafiles/*
+!backend/mediafiles/.gitkeep
+
+# --- Node / Next ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# --- Logs ---
+*.log

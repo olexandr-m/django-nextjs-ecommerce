@@ -1,0 +1,172 @@
+name: django-project-dev
+
+x-backend-service: &backend-service
+  build:
+    context: .
+    dockerfile: ./_docker/backend/Dockerfile.dev
+  image: django-project/backend:dev
+  working_dir: /app
+  env_file:
+    - ./_docker/envs/backend.dev.env
+  volumes:
+    - ./backend:/app
+    - django_staticfiles:/app/staticfiles
+    - django_mediafiles:/app/mediafiles
+  depends_on:
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+  networks:
+    - application
+  init: true
+
+services:
+  backend:
+    <<: *backend-service
+    command:
+      - /start-dev
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../_docker/frontend/Dockerfile.dev
+    image: django-project/frontend:dev
+    working_dir: /app
+    env_file:
+      - ./_docker/envs/frontend.dev.env
+    volumes:
+      - ./frontend:/app
+      - django_node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./_docker/nginx/Dockerfile.dev
+    image: django-project/nginx:dev
+    ports:
+      - "8080:80"
+    volumes:
+      - django_staticfiles:/app/staticfiles:ro
+      - django_mediafiles:/app/mediafiles:ro
+      - nginx_logs:/var/log/nginx
+    depends_on:
+      backend:
+        condition: service_started
+      frontend:
+        condition: service_started
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+
+  celeryworker:
+    <<: *backend-service
+    command:
+      - /start-celeryworker
+    restart: unless-stopped
+
+  celerybeat:
+    <<: *backend-service
+    command:
+      - /start-celerybeat
+    restart: unless-stopped
+
+  flower:
+    <<: *backend-service
+    command:
+      - /start-flower
+    ports:
+      - "5555:5555"
+    restart: unless-stopped
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./_docker/postgres/Dockerfile
+    image: django-project/postgres:dev
+    env_file:
+      - ./_docker/envs/postgres.dev.env
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - "5050:8080"
+    env_file:
+      - ./_docker/envs/adminer.dev.env
+    networks:
+      - application
+
+  redis:
+    image: redis:8-alpine
+    command:
+      - redis-server
+      - --appendonly
+      - "yes"
+      - --appendfsync
+      - everysec
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+
+  mailpit:
+    image: axllent/mailpit:v1.21
+    ports:
+      - "127.0.0.1:8025:8025"
+      - "127.0.0.1:1025:1025"
+    networks:
+      - application
+    restart: unless-stopped
+    init: true
+
+networks:
+  application:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  django_node_modules:
+  django_staticfiles:
+  django_mediafiles:
+  nginx_logs:

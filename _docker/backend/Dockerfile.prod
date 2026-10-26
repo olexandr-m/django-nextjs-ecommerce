@@ -1,0 +1,62 @@
+FROM python:3.13-slim-bookworm AS build
+
+ARG REQUIREMENTS_FILE=production.txt
+
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /wheels
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY backend/requirements /requirements
+
+RUN pip wheel --wheel-dir /wheels -r /requirements/${REQUIREMENTS_FILE}
+
+FROM python:3.13-slim-bookworm
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        bash \
+        curl \
+        gettext \
+        libpq5 \
+    && rm -rf /var/lib/apt/lists/* \
+    && addgroup --system django \
+    && adduser --system --ingroup django django \
+    && mkdir -p /app/staticfiles /app/mediafiles \
+    && chown -R django:django /app
+
+COPY --from=build /wheels /wheels
+
+RUN pip install --no-index --find-links=/wheels /wheels/* \
+    && rm -rf /wheels
+
+COPY _docker/backend/entrypoint.sh /entrypoint
+COPY _docker/backend/start.dev.sh /start-dev
+COPY _docker/backend/start.prod.sh /start-prod
+COPY _docker/backend/celery/worker.sh /start-celeryworker
+COPY _docker/backend/celery/beat.sh /start-celerybeat
+COPY _docker/backend/celery/flower.sh /start-flower
+
+RUN sed -i 's/\r$//g' /entrypoint /start-dev /start-prod /start-celeryworker /start-celerybeat /start-flower \
+    && chmod +x /entrypoint /start-dev /start-prod /start-celeryworker /start-celerybeat /start-flower
+
+COPY --chown=django:django backend .
+
+USER django
+
+EXPOSE 8000
+
+ENTRYPOINT ["/entrypoint"]
