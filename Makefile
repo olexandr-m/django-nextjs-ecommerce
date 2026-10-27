@@ -37,9 +37,9 @@ compilemessages:
 	$(DEV_COMPOSE) exec backend django-admin compilemessages
 collectstatic:
 	$(DEV_COMPOSE) exec backend python manage.py collectstatic --no-input
-test:
-# 	$(DEV_COMPOSE) exec backend pytest
-	$(DEV_COMPOSE) exec backend pytest core_apps/categories/tests/services/test_category_tree_service.py
+pytest:
+	$(DEV_COMPOSE) exec backend pytest
+	# $(DEV_COMPOSE) exec backend pytest core_apps/categories/tests/services/test_category_tree_service.py
 
 prod-build:
 	$(PROD_COMPOSE) build
