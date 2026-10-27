@@ -134,7 +134,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    "DEFAULT_RENDERER_CLASSES": [],
+    "DEFAULT_RENDERER_CLASSES": ["core_apps.common.renderers.GenericJSONRenderer"],
     "PAGE_SIZE": 10,
     "DEFAULT_PARSER_CLASSES": [
         "rest_framework.parsers.JSONParser",
