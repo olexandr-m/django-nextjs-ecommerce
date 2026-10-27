@@ -1,7 +1,7 @@
 # --- Environment / secrets ---
 .env
 .env.*
-!backend/.env.example
+!backend/envs/.env.example
 !frontend/.env.example
 _docker/envs/*.env
 !_docker/envs/*.example
