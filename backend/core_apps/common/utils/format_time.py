@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 from django.utils.translation import ngettext
 
 
-def format_seconds_to_time_string(wait: float) -> str:
+def format_seconds_to_time_string(wait: float | None) -> str:
     wait_seconds = wait or 0
 
     duration = timedelta(seconds=wait_seconds)

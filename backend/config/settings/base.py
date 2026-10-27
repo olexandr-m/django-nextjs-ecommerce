@@ -151,6 +151,7 @@ REST_FRAMEWORK = {
         "anon": "2000/day",
         "user": "4000/day",
     },
+    "EXCEPTION_HANDLER": "core_apps.common.exceptions.handlers.generic_exception_handler",
 }
 
 

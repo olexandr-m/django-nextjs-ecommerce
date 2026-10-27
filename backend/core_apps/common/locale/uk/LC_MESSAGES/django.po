@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-27 16:04+0200\n"
+"POT-Creation-Date: 2026-10-27 17:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,81 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: core_apps/common/apps.py:8
 msgid "Common"
 msgstr "Загальне"
+
+#: core_apps/common/exceptions/base.py:7
+msgid "Application error."
+msgstr "Помилка додатка."
+
+#: core_apps/common/exceptions/handlers.py:22
+msgid "Too many requests. Please try again later."
+msgstr "Забагато запитів. Будь ласка, спробуйте пізніше."
+
+#: core_apps/common/exceptions/handlers.py:25
+#, python-format
+msgid "Too many requests. Try again in %(wait)s."
+msgstr "Забагато запитів. Спробуйте знову через %(wait)s."
+
+#: core_apps/common/exceptions/handlers.py:39
+msgid "Validation failed."
+msgstr "Помилка валідації."
+
+#: core_apps/common/exceptions/handlers.py:55
+msgid "An error occurred."
+msgstr "Сталася помилка."
+
+#: core_apps/common/exceptions/handlers.py:66
+msgid "Internal server error. Please try again later."
+msgstr "Внутрішня помилка сервера. Будь ласка, спробуйте пізніше."
+
+#: core_apps/common/exceptions/not_found.py:9
+#, python-format
+msgid "%(resource)s not found."
+msgstr "%(resource)s не знайдено."
+
+#: core_apps/common/renderers.py:22
+msgid "Response not found in renderer context."
+msgstr "Відповідь не знайдена в контексті рендерера."
+
+#: core_apps/common/utils/format_time.py:19
+#, python-format
+msgid "%(count)d day"
+msgid_plural "%(count)d days"
+msgstr[0] "%(count)d днів"
+msgstr[1] "%(count)d день"
+msgstr[2] "%(count)d дні"
+msgstr[3] "%(count)d дні"
+
+#: core_apps/common/utils/format_time.py:23
+#, python-format
+msgid "%(count)d hour"
+msgid_plural "%(count)d hours"
+msgstr[0] "%(count)d годин"
+msgstr[1] "%(count)d година"
+msgstr[2] "%(count)d години"
+msgstr[3] "%(count)d години"
+
+#: core_apps/common/utils/format_time.py:27
+#, python-format
+msgid "%(count)d minute"
+msgid_plural "%(count)d minutes"
+msgstr[0] "%(count)d хвилин"
+msgstr[1] "%(count)d хвилина"
+msgstr[2] "%(count)d хвилини"
+msgstr[3] "%(count)d хвилини"
+
+#: core_apps/common/utils/format_time.py:32
+#, python-format
+msgid "%(count)d second"
+msgid_plural "%(count)d seconds"
+msgstr[0] "%(count)d секунд"
+msgstr[1] "%(count)d секунда"
+msgstr[2] "%(count)d секунди"
+msgstr[3] "%(count)d секунди"
+
+#: core_apps/common/utils/format_time.py:37
+msgid "0 seconds"
+msgstr "0 секунд"
