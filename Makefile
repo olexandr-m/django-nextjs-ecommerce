@@ -29,6 +29,8 @@ seed:
 	$(DEV_COMPOSE) exec backend python manage.py seed_db --force
 flush:
 	$(DEV_COMPOSE) exec backend python manage.py flush
+app:
+	$(DEV_COMPOSE) exec backend python manage.py startapp "$(name)"
 messages:
 	$(DEV_COMPOSE) exec backend python manage.py makemessages -l uk -e py,html --ignore=static --ignore=migrations
 compilemessages:

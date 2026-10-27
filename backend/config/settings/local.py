@@ -8,7 +8,7 @@ from .base import BASE_DIR
 
 IS_TESTING = "pytest" in sys.modules or "test" in sys.argv
 
-local_env_file = path.join(BASE_DIR, ".envs", ".env.dev")
+local_env_file = path.join(BASE_DIR, "envs", ".env.dev")
 
 if path.isfile(local_env_file):
     load_dotenv(local_env_file)

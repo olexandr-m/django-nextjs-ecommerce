@@ -4,7 +4,7 @@ x-backend-service: &backend-service
   image: django-project/backend:prod
   working_dir: /app
   env_file:
-    - ./backend/.envs/.env.production
+    - ./backend/envs/.env.production
   volumes:
     - django_staticfiles:/app/staticfiles
     - django_mediafiles:/app/mediafiles
