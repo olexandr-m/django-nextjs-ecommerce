@@ -3,7 +3,6 @@ from pathlib import Path
 
 from core_apps.common.logging.setup import setup_logging
 from dotenv import load_dotenv
-from loguru import logger
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -175,6 +174,16 @@ CELERY_TASK_TIME_LIMIT = 5 * 60
 CELERY_TASK_SOFT_TIME_LIMIT = 60
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_WORKER_SEND_TASK_EVENTS = True
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
 
 
 LOGGING_CONFIG = None
