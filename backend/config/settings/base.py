@@ -135,6 +135,7 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_RENDERER_CLASSES": ["core_apps.common.renderers.GenericJSONRenderer"],
+    "DEFAULT_PAGINATION_CLASS": "core_apps.common.pagination.GenericPagination",
     "PAGE_SIZE": 10,
     "DEFAULT_PARSER_CLASSES": [
         "rest_framework.parsers.JSONParser",
