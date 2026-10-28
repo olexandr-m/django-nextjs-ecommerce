@@ -1,7 +1,9 @@
 from os import getenv, path
 from pathlib import Path
 
+from core_apps.common.logging.setup import setup_logging
 from dotenv import load_dotenv
+from loguru import logger
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -46,6 +48,7 @@ MIDDLEWARE = [
     # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "core_apps.common.logging.middleware.LogRequestMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -172,3 +175,14 @@ CELERY_TASK_TIME_LIMIT = 5 * 60
 CELERY_TASK_SOFT_TIME_LIMIT = 60
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_WORKER_SEND_TASK_EVENTS = True
+
+
+LOGGING_CONFIG = None
+logger = setup_logging(BASE_DIR)
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"loguru": {"class": "interceptor.InterceptHandler"}},
+    "root": {"handlers": ["loguru"], "level": "DEBUG"},
+}
