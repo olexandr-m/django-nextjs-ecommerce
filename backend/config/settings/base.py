@@ -34,6 +34,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "core_apps.common",
+    "core_apps.iam",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -113,7 +114,10 @@ LANGUAGES = [
     ("en", "English"),
     ("uk", "Ukrainian"),
 ]
-LOCALE_PATHS = []
+LOCALE_PATHS = [
+    BASE_DIR / "core_apps/common/locale",
+    BASE_DIR / "core_apps/iam/locale",
+]
 
 TIME_ZONE = "Europe/Kyiv"
 USE_TZ = True
