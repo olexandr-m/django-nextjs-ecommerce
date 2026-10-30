@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-29 17:30+0200\n"
+"POT-Creation-Date: 2026-10-30 14:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,35 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: core_apps/iam/apps.py:8
 msgid "Identity and Access Management"
 msgstr "Керування ідентифікацією та доступом"
+
+#: core_apps/iam/models/authentication.py:7
+msgid "Active"
+msgstr "Активний"
+
+#: core_apps/iam/models/authentication.py:8
+msgid "Inactive"
+msgstr "Неактивний"
+
+#: core_apps/iam/models/authentication.py:9
+msgid "Locked"
+msgstr "Заблокований"
+
+#: core_apps/iam/models/authentication.py:12
+msgid "Customer"
+msgstr "Клієнт"
+
+#: core_apps/iam/models/authentication.py:13
+msgid "Admin"
+msgstr "Адміністратор"
+
+#: core_apps/iam/models/authentication.py:16
+msgid "Account Status"
+msgstr "Статус акаунта"
+
+#: core_apps/iam/models/authentication.py:23
+msgid "Role"
+msgstr "Роль"
