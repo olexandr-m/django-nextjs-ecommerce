@@ -126,6 +126,8 @@ USE_TZ = True
 
 SITE_ID = 1
 
+AUTH_USER_MODEL = "users.User"
+
 
 STATIC_URL = "/staticfiles/"
 STATIC_ROOT = str(BASE_DIR / "staticfiles")

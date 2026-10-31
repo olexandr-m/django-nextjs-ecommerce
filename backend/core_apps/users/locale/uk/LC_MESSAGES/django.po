@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-30 14:53+0200\n"
+"POT-Creation-Date: 2026-10-31 16:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,47 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-#: core_apps/users/apps.py:8
+
+#: core_apps/users/apps.py:8 core_apps/users/models.py:37
 msgid "Users"
+msgstr "Користувачі"
+
+#: core_apps/users/managers.py:13
+msgid "Enter a valid email address."
+msgstr "Введіть коректну адресу електронної пошти."
+
+#: core_apps/users/managers.py:21
+msgid "A username must be provided."
+msgstr "Необхідно вказати ім'я користувача."
+
+#: core_apps/users/managers.py:24
+msgid "An email address must be provided."
+msgstr "Необхідно вказати адресу електронної пошти."
+
+#: core_apps/users/managers.py:27
+msgid "A password must be provided."
+msgstr "Необхідно вказати пароль."
+
+#: core_apps/users/models.py:14
+msgid "First Name"
+msgstr "Ім'я"
+
+#: core_apps/users/models.py:16
+msgid "Last Name"
+msgstr "Прізвище"
+
+#: core_apps/users/models.py:18
+msgid "Email Address"
+msgstr "Електронна пошта"
+
+#: core_apps/users/models.py:20
+#, fuzzy
+#| msgid "Users"
+msgid "Username"
+msgstr "Користувачі"
+
+#: core_apps/users/models.py:36
+#, fuzzy
+#| msgid "Users"
+msgid "User"
 msgstr "Користувачі"
