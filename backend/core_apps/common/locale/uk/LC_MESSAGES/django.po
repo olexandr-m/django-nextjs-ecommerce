@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-27 17:06+0200\n"
+"POT-Creation-Date: 2026-11-05 15:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,34 @@ msgstr "Внутрішня помилка сервера. Будь ласка, �
 #, python-format
 msgid "%(resource)s not found."
 msgstr "%(resource)s не знайдено."
+
+#: core_apps/common/models/content_view.py:15
+msgid "Content Type"
+msgstr "Тип контенту"
+
+#: core_apps/common/models/content_view.py:17
+msgid "Object ID"
+msgstr "ID об'єкта"
+
+#: core_apps/common/models/content_view.py:25
+msgid "User"
+msgstr "Користувач"
+
+#: core_apps/common/models/content_view.py:28
+msgid "Viewer IP Address"
+msgstr "IP-адреса відвідувача"
+
+#: core_apps/common/models/content_view.py:39
+msgid "This record is an immutable log and cannot be modified."
+msgstr "Цей запис є незмінним журналом і не підлягає редагуванню."
+
+#: core_apps/common/models/content_view.py:44
+msgid "Content View"
+msgstr "Перегляд контенту"
+
+#: core_apps/common/models/content_view.py:45
+msgid "Content Views"
+msgstr "Перегляди контенту"
 
 #: core_apps/common/renderers.py:22
 msgid "Response not found in renderer context."
