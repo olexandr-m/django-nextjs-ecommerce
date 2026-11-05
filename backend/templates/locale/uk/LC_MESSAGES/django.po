@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-05 16:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: templates/emails/auth/activation_email.html:5
+#: templates/emails/auth/activation_email.html:10
+msgid "Activate your account."
+msgstr "Активуйте свій акаунт."
+
+#: templates/emails/auth/activation_email.html:13
+msgid "Hello,"
+msgstr "Вітаємо,"
+
+#: templates/emails/auth/activation_email.html:16
+msgid ""
+"Thank you for registering. To complete your registration and activate your "
+"account, please click the button below."
+msgstr ""
+"Дякуємо за реєстрацію. Щоб завершити процес і активувати свій обліковий "
+"запис, натисніть кнопку нижче."
+
+#: templates/emails/auth/activation_email.html:26
+msgid "Activate account"
+msgstr "Активувати обліковий запис"
+
+#: templates/emails/auth/activation_email.html:31
+#, python-format
+msgid ""
+"\n"
+"        This link will expire on <strong>%(expiry)s</strong>.\n"
+"      "
+msgstr ""
+"\n"
+"        Це посилання буде дійсним до <strong>%(expiry)s</strong>.\n"
+"      "
+
+#: templates/emails/auth/activation_email.html:37
+msgid ""
+"If the button doesn't work, copy and paste the following link into your "
+"browser:"
+msgstr ""
+"Якщо кнопка не працює, скопіюйте та вставте наступне посилання у свій "
+"браузер:"
+
+#: templates/emails/auth/activation_email.html:42
+msgid ""
+"If you did not sign up for an account, you can safely ignore this email."
+msgstr "Якщо ви не реєстрували обліковий запис, просто проігноруйте цей лист."
+
+#: templates/emails/auth/activation_email.html:46
+msgid "Thanks,"
+msgstr "Дякуємо,"
+
+#: templates/emails/auth/activation_email.html:47
+msgid "The Team"
+msgstr "Команда"
+
+#: templates/emails/auth/activation_email.html:52
+msgid "All rights reserved."
+msgstr "Усі права захищено."

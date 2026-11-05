@@ -1,0 +1,55 @@
+{% extends "emails/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Activate your account." %}
+{% endblock %}
+
+{% block content %}
+<div class="container" role="article" aria-label="Account activation">
+  <div class="header">{% trans "Activate your account." %}</div>
+
+  <div class="content">
+    <p>{% trans "Hello," %} {{ username }}.</p>
+
+    <p>
+      {% trans "Thank you for registering. To complete your registration and activate your account, please click the button below." %}
+    </p>
+
+    <p style="text-align: center">
+      <a
+        href="{{ activation_url }}"
+        class="button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {% trans "Activate account" %}
+      </a>
+    </p>
+
+    <p>
+      {% blocktrans with expiry=expiry_time %}
+        This link will expire on <strong>{{ expiry }}</strong>.
+      {% endblocktrans %}
+    </p>
+
+    <p>
+      {% trans "If the button doesn't work, copy and paste the following link into your browser:" %}
+    </p>
+    <p><a href="{{ activation_url }}" style="word-break: break-word; display: inline-block;">{{ activation_url }}</a></p>
+
+    <p>
+      {% trans "If you did not sign up for an account, you can safely ignore this email." %}
+    </p>
+
+    <p>
+      {% trans "Thanks," %} <br />
+      {% trans "The Team" %} {{ site_name }}
+    </p>
+  </div>
+
+  <div class="footer">
+    &copy; {% now "Y" %} {{ site_name }}. {% trans "All rights reserved." %}
+  </div>
+</div>
+{% endblock content %}
