@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 16:04+0200\n"
+"POT-Creation-Date: 2026-11-05 16:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,47 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: core_apps/profiles/apps.py:8
 msgid "Profiles"
 msgstr "Профілі"
+
+#: core_apps/profiles/models.py:17
+msgid "Male"
+msgstr "Чоловік"
+
+#: core_apps/profiles/models.py:18
+msgid "Female"
+msgstr "Жінка"
+
+#: core_apps/profiles/models.py:19
+msgid "Other"
+msgstr "Інша"
+
+#: core_apps/profiles/models.py:22
+msgid "Avatar"
+msgstr "Аватар"
+
+#: core_apps/profiles/models.py:24
+msgid "Gender"
+msgstr "Стать"
+
+#: core_apps/profiles/models.py:29
+msgid "Bio"
+msgstr "Про себе"
+
+#: core_apps/profiles/models.py:31
+msgid "Phone Number"
+msgstr "Номер телефону"
+
+#: core_apps/profiles/models.py:33
+msgid "Date of Birth"
+msgstr "Дата народження"
+
+#: core_apps/profiles/models.py:34
+msgid "City"
+msgstr "Місто"
+
+#: core_apps/profiles/models.py:35
+msgid "Country"
+msgstr "Країна"

@@ -4,6 +4,7 @@ djangorestframework==3.18.3
 djangorestframework-simplejwt==5.5.1
 google-auth==2.62.0
 django-countries==9.1.0
+phonenumbers==9.0.42
 django-phonenumber-field==9.0.0
 drf-spectacular==0.30.0
 pillow==13.0.0
