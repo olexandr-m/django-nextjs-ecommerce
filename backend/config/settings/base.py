@@ -58,7 +58,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [str(APPS_DIR / "templates")],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -121,6 +121,7 @@ LOCALE_PATHS = [
     BASE_DIR / "core_apps/iam/locale",
     BASE_DIR / "core_apps/users/locale",
     BASE_DIR / "core_apps/profiles/locale",
+    BASE_DIR / "templates/locale",
 ]
 
 TIME_ZONE = "Europe/Kyiv"
