@@ -36,6 +36,7 @@ LOCAL_APPS = [
     "core_apps.common",
     "core_apps.iam",
     "core_apps.users",
+    "core_apps.profiles",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -119,6 +120,7 @@ LOCALE_PATHS = [
     BASE_DIR / "core_apps/common/locale",
     BASE_DIR / "core_apps/iam/locale",
     BASE_DIR / "core_apps/users/locale",
+    BASE_DIR / "core_apps/profiles/locale",
 ]
 
 TIME_ZONE = "Europe/Kyiv"
