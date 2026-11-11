@@ -164,6 +164,10 @@ REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_RATES": {
         "anon": "2000/day",
         "user": "4000/day",
+        "auth_attempts_min_email": "5/min",
+        "auth_attempts_min_ip": "10/min",
+        "auth_attempts_hour": "15/hour",
+        "auth_attempts_day": "40/day",
     },
     "EXCEPTION_HANDLER": "core_apps.common.exceptions.handlers.generic_exception_handler",
 }
