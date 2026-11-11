@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 15:23+0200\n"
+"POT-Creation-Date: 2026-11-11 16:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,3 +65,9 @@ msgstr "Роль"
 #: core_apps/iam/serializers/registration_serializer.py:19
 msgid "Passwords do not match."
 msgstr "Паролі не співпадають."
+
+#: core_apps/iam/views/registration_view.py:43
+msgid "Registration successful. Check your email to activate your account."
+msgstr ""
+"Реєстрація успішна. Перевірте свою електронну пошту, щоб активувати "
+"обліковий запис."
