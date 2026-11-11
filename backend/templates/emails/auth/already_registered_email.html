@@ -1,0 +1,59 @@
+{% extends "emails/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% blocktrans with app_name=app_name %}
+  Attempted Registration at {{ app_name }}
+{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+<div class="container" role="article" aria-label="Account activation">
+  <div class="header">
+    {% blocktrans with app_name=app_name %}
+      Attempted Registration at {{ app_name }}
+    {% endblocktrans %}
+  </div>
+
+  <div class="content">
+    <p>{% trans "Hello," %} {{ username }}.</p>
+
+    <p>
+      {% trans "Someone recently tried to create an account on our website using this email address." %}
+    </p>
+
+    <p>
+      {% trans "Since you already have an account, no new account was created." %}
+    </p>
+
+    <p style="text-align: center">
+      <a
+        href="{{ login_url }}"
+        class="button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {% trans "Login to Your Account" %}
+      </a>
+    </p>
+
+    <p>
+      {% trans "If the button doesn't work, copy and paste the following link into your browser:" %}
+    </p>
+    <p><a href="{{ login_url }}" style="word-break: break-word; display: inline-block;">{{ login_url }}</a></p>
+
+    <p>
+      {% trans "If this was not you, you can safely ignore this email." %}
+    </p>
+
+    <p>
+      {% trans "Thanks," %} <br />
+      {% trans "The Team" %} {{ app_name }}
+    </p>
+  </div>
+
+  <div class="footer">
+    &copy; {% now "Y" %} {{ app_name }}. {% trans "All rights reserved." %}
+  </div>
+</div>
+{% endblock content %}

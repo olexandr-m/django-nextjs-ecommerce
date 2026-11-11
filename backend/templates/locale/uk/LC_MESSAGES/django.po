@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 16:52+0200\n"
+"POT-Creation-Date: 2026-11-11 14:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,12 +20,14 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: templates/emails/auth/activation_email.html:5
 #: templates/emails/auth/activation_email.html:10
 msgid "Activate your account."
 msgstr "Активуйте свій акаунт."
 
 #: templates/emails/auth/activation_email.html:13
+#: templates/emails/auth/already_registered_email.html:19
 msgid "Hello,"
 msgstr "Вітаємо,"
 
@@ -53,6 +55,7 @@ msgstr ""
 "      "
 
 #: templates/emails/auth/activation_email.html:37
+#: templates/emails/auth/already_registered_email.html:41
 msgid ""
 "If the button doesn't work, copy and paste the following link into your "
 "browser:"
@@ -66,13 +69,56 @@ msgid ""
 msgstr "Якщо ви не реєстрували обліковий запис, просто проігноруйте цей лист."
 
 #: templates/emails/auth/activation_email.html:46
+#: templates/emails/auth/already_registered_email.html:50
 msgid "Thanks,"
 msgstr "Дякуємо,"
 
 #: templates/emails/auth/activation_email.html:47
+#: templates/emails/auth/already_registered_email.html:51
 msgid "The Team"
 msgstr "Команда"
 
 #: templates/emails/auth/activation_email.html:52
+#: templates/emails/auth/already_registered_email.html:56
 msgid "All rights reserved."
 msgstr "Усі права захищено."
+
+#: templates/emails/auth/already_registered_email.html:5
+#, python-format
+msgid ""
+"\n"
+"  Attempted Registration at %(app_name)s\n"
+msgstr ""
+"\n"
+"  Спроба реєстрації в %(app_name)s\n"
+
+#: templates/emails/auth/already_registered_email.html:13
+#, python-format
+msgid ""
+"\n"
+"      Attempted Registration at %(app_name)s\n"
+"    "
+msgstr ""
+"\n"
+"      Спроба реєстрації в %(app_name)s\n"
+"    "
+
+#: templates/emails/auth/already_registered_email.html:22
+msgid ""
+"Someone recently tried to create an account on our website using this email "
+"address."
+msgstr ""
+"Хтось нещодавно намагався створити обліковий запис на нашому сайті, "
+"використовуючи цю електронну адресу."
+
+#: templates/emails/auth/already_registered_email.html:26
+msgid "Since you already have an account, no new account was created."
+msgstr "Оскільки у вас уже є обліковий запис, новий акаунт не був створений."
+
+#: templates/emails/auth/already_registered_email.html:36
+msgid "Login to Your Account"
+msgstr "Увійдіть у свій обліковий запис"
+
+#: templates/emails/auth/already_registered_email.html:46
+msgid "If this was not you, you can safely ignore this email."
+msgstr "Якщо це були не ви, ви можете сміливо ігнорувати цей лист."

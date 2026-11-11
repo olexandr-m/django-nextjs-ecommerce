@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-31 16:33+0200\n"
+"POT-Creation-Date: 2026-11-11 14:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,10 @@ msgstr ""
 #: core_apps/iam/apps.py:8
 msgid "Identity and Access Management"
 msgstr "Керування ідентифікацією та доступом"
+
+#: core_apps/iam/emails/send_activation_email.py:17
+msgid "Activate your account."
+msgstr "Активуйте свій акаунт."
 
 #: core_apps/iam/models/authentication.py:9
 msgid "Active"
