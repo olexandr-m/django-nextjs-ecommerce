@@ -206,3 +206,6 @@ LOGGING = {
     "handlers": {"loguru": {"class": "interceptor.InterceptHandler"}},
     "root": {"handlers": ["loguru"], "level": "DEBUG"},
 }
+
+
+ACTIVATION_TOKEN_EXPIRY_HOURS = getenv("ACTIVATION_TOKEN_EXPIRY_HOURS", "24")
