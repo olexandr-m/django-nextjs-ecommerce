@@ -2,6 +2,7 @@ from os import getenv, path
 from pathlib import Path
 
 from core_apps.common.logging.setup import setup_logging
+from documentation.spectacular_settings import SPECTACULAR_SETTINGS
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -131,7 +132,6 @@ SITE_ID = 1
 
 AUTH_USER_MODEL = "users.User"
 
-
 STATIC_URL = "/staticfiles/"
 STATIC_ROOT = str(BASE_DIR / "staticfiles")
 
@@ -139,6 +139,8 @@ MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = str(BASE_DIR / "mediafiles")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SPECTACULAR_SETTINGS = SPECTACULAR_SETTINGS  # noqa: PLW0127
 
 
 REST_FRAMEWORK = {

@@ -22,6 +22,7 @@ backend/staticfiles/*
 !backend/staticfiles/.gitkeep
 backend/mediafiles/*
 !backend/mediafiles/.gitkeep
+backend/celerybeat*
 
 # --- Node / Next ---
 frontend/node_modules/
