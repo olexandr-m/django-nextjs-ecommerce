@@ -1,5 +1,6 @@
 import pytest
 from core_apps.iam.serializers.registration_serializer import RegistrationSerializer
+from core_apps.users.models import User
 from core_apps.users.tests.factories import UserFactory
 from rest_framework.validators import UniqueValidator
 
@@ -35,6 +36,7 @@ def test_valid_data_creates_user(valid_data):
     serializer = RegistrationSerializer(data=valid_data)
     assert serializer.is_valid(), serializer.errors
     user = serializer.save()
+    assert isinstance(user, User)
 
     assert user.email == valid_data["email"]
     assert user.username == valid_data["username"]

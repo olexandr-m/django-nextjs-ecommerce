@@ -38,7 +38,7 @@ compilemessages:
 collectstatic:
 	$(DEV_COMPOSE) exec backend python manage.py collectstatic --no-input
 test:
-	$(DEV_COMPOSE) exec backend pytest core_apps/iam
+	$(DEV_COMPOSE) exec backend pytest
 
 
 prod-build:
