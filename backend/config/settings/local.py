@@ -30,3 +30,17 @@ EMAIL_PORT = getenv("EMAIL_PORT")
 DEFAULT_FROM_EMAIL = getenv("DEFAULT_FROM_EMAIL")
 DOMAIN = getenv("DOMAIN")
 ADMIN_EMAIL = getenv("ADMIN_EMAIL")
+
+
+# DEBUG_TOOLBAR
+if DEBUG and not IS_TESTING:
+    INSTALLED_APPS += [
+        "debug_toolbar",
+    ]
+    MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+    ] + MIDDLEWARE
+    INTERNAL_IPS = ["127.0.0.1"]
+    DEBUG_TOOLBAR_CONFIG = {
+        "SHOW_TOOLBAR_CALLBACK": lambda request: True,
+    }
