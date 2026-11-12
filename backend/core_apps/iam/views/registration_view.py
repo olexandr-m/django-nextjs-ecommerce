@@ -11,12 +11,15 @@ from core_apps.iam.throttles.auth_attempt_throttle import (
 )
 from core_apps.users.serializers.user_serializer import UserSerializer
 from django.utils.translation import gettext as _
+from documentation.iam.schemas.registration_schema import register_schema
+from drf_spectacular.utils import extend_schema
 from rest_framework import permissions, status
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
+@extend_schema(**register_schema)
 class RegistrationView(APIView):
     permission_classes = (permissions.AllowAny,)
     throttle_classes = (
