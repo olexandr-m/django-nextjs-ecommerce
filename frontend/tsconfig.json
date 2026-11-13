@@ -11,6 +11,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "types": ["vitest/globals", "node", "@testing-library/jest-dom"],
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
@@ -20,6 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@tests/*": ["./tests/*"],
     },
   },
   "include": [
@@ -29,6 +31,10 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "tests",
+    ".next/dev/dev/types/**/*.ts",
   ],
   "exclude": ["node_modules"],
 }
