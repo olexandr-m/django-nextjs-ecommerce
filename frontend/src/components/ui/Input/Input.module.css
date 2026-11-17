@@ -1,0 +1,77 @@
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: 2.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--timing-base),
+    box-shadow var(--timing-base);
+}
+
+.input:focus {
+  border-color: var(--brand-orange);
+  box-shadow: 0 0 0 3px rgba(var(--brand-orange-rgb), 0.15);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: var(--bg-canvas);
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  pointer-events: auto;
+  width: 20px;
+  height: 20px;
+}
+
+.iconWrapper svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.startIcon {
+  left: var(--space-3);
+}
+.endIcon {
+  right: var(--space-3);
+}
+
+/* Padding Logic */
+.padBoth {
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+}
+.padStart {
+  padding-left: 2.75rem;
+  padding-right: var(--space-3);
+}
+.padEnd {
+  padding-left: var(--space-3);
+  padding-right: 2.75rem;
+}
+.padNone {
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
