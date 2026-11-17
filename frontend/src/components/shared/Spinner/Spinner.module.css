@@ -1,0 +1,59 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.spinnerBase {
+  display: block;
+  animation: spin 1s linear infinite;
+}
+
+.xxs {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.xs {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.sm {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.md {
+  width: 5rem;
+  height: 5rem;
+}
+.lg {
+  width: 8rem;
+  height: 8rem;
+}
+.xl {
+  width: 13rem;
+  height: 13rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
