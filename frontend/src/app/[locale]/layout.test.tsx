@@ -1,5 +1,7 @@
 import LocaleLayout, { metadata, viewport } from "@/app/[locale]/layout";
 import { render, screen, setMessages } from "@tests/test-utils";
+import fs from "node:fs";
+import path from "node:path";
 
 vi.mock("next-intl/server", () => ({
   getMessages: vi.fn(async ({ locale }: { locale: string }) => ({})),
@@ -25,9 +27,23 @@ describe("LocaleLayout (Server Component)", () => {
 
   it("exports correct metadata and viewport", () => {
     expect(metadata.title).toBe("E-commerce");
+    expect(metadata.icons).toEqual({
+      icon: {
+        url: "/assets/images/main/favicon-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+    });
 
     expect(viewport.width).toBe("device-width");
     expect(viewport.initialScale).toBe(1);
+  });
+
+  it("favicon file exists in the public directory", () => {
+    const iconUrl = (metadata.icons.icon as { url: string }).url;
+    const faviconPath = path.join(process.cwd(), "public", iconUrl);
+
+    expect(fs.existsSync(faviconPath)).toBe(true);
   });
 
   it("receives the correct locale param", async () => {
