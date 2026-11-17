@@ -1,5 +1,9 @@
 {
-  "home_page": {
-    "greeting": "Hello en"
+  "not_found": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for could not be found.",
+    "go_home": "Back to main page",
+    "metadata_title": "404 | Page Not Found",
+    "metadata_description": "Page not found. Please check the URL or return to the homepage."
   }
 }
