@@ -1,0 +1,123 @@
+.providerContainer {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  width: 350px;
+  max-width: calc(100vw - 2.5rem);
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 300ms;
+}
+
+/* Animations */
+@keyframes toast-shrink {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+@keyframes toast-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes toast-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.animateIn {
+  animation: toast-in 300ms ease-out forwards;
+}
+.animateOut {
+  animation: toast-out 300ms ease-in forwards;
+}
+
+/* Progress Bar Track */
+.progressTrack {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.25rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar Fill */
+.progressBar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Variants */
+.default {
+  background-color: #1f2937;
+  color: white;
+}
+.success {
+  background-color: #16a34a;
+  color: white;
+}
+.error {
+  background-color: #dc2626;
+  color: white;
+}
+.info {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Typography & Button */
+.message {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+.closeBtn {
+  font-size: 1.125rem;
+  line-height: 1;
+  opacity: 0.7;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  transition: opacity 200ms;
+}
+.closeBtn:hover {
+  opacity: 1;
+}
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
