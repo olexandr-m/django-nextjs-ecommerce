@@ -1,4 +1,4 @@
-import { createMetadata } from "@/utils/createMetadata";
+import { createMetadata } from "../create-metadata";
 import { setMessages } from "@tests/test-utils";
 
 describe("createMetadata", () => {

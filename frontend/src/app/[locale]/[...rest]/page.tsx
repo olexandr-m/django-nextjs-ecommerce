@@ -1,4 +1,4 @@
-import { createMetadata } from "@/utils/createMetadata";
+import { createMetadata } from "@/utils";
 import { notFound } from "next/navigation";
 
 export const instant = false;

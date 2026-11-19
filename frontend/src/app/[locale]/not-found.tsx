@@ -1,5 +1,5 @@
 import { ExceptionView } from "@/components/shared/ExceptionView";
-import { createMetadata } from "@/utils/createMetadata";
+import { createMetadata } from "@/utils";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
