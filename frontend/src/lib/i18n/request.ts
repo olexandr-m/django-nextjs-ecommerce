@@ -12,6 +12,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale,
     messages: {
       common: (await import(`@/locales/${locale}/common.json`)).default,
+      validation: (await import(`@/locales/${locale}/validation.json`)).default,
     },
   };
 });

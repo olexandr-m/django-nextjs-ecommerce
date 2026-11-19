@@ -1,0 +1,20 @@
+{
+  "email": {
+    "required": "Email field is required.",
+    "invalid": "Enter a valid email address."
+  },
+  "password": {
+    "required": "Password field is required.",
+    "min": "Password must be at least 8 characters long.",
+    "mismatch": "Passwords do not match."
+  },
+  "username": {
+    "required": "Username field is required.",
+    "invalid": "Enter a valid username. It should contain only letters, numbers, underscores, @, +, ., and -.",
+    "min": "Username must be at least 3 characters long."
+  },
+  "confirmed_password": {
+    "required": "Confirmed password field is required.",
+    "min": "Confirmed password must be at least 8 characters long."
+  }
+}
