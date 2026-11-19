@@ -1,3 +1,4 @@
+import Providers from "@/components/providers";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
@@ -68,7 +69,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <Providers>{children}</Providers>
         </NextIntlClientProvider>
       </body>
     </html>

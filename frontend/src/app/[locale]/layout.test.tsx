@@ -7,6 +7,10 @@ vi.mock("next-intl/server", () => ({
   getMessages: vi.fn(async ({ locale }: { locale: string }) => ({})),
 }));
 
+vi.mock("@/components/providers", () => ({
+  default: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+}));
+
 describe("LocaleLayout (Server Component)", () => {
   beforeEach(() => {
     setMessages({});
