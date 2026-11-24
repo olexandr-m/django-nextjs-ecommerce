@@ -1,0 +1,30 @@
+.pageWrapper {
+  width: 100%;
+  overflow: hidden;
+  padding-top: var(--space-12) !important;
+  padding-bottom: var(--space-12) !important;
+}
+
+@media (min-width: 768px) {
+  .pageWrapper {
+    padding-top: var(--space-20, 5rem) !important;
+    padding-bottom: var(--space-20, 5rem) !important;
+  }
+}
+
+.section {
+  margin-bottom: var(--space-10, 2.5rem);
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+}
