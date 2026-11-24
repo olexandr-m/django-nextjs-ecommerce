@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/Input";
+import { Input } from "@/components/ui/input";
 import userEvent from "@testing-library/user-event";
 import { fireEvent, render, screen } from "@tests/test-utils";
 import React from "react";

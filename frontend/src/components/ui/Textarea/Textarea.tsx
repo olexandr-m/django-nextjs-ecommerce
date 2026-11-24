@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils/cn";
 import * as React from "react";
-import styles from "./Textarea.module.css";
+import styles from "./textarea.module.css";
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, React.ComponentProps<"textarea">>(
   ({ className, rows = 4, ...props }, ref) => {

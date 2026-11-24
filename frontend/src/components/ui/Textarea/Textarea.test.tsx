@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { fireEvent, render, screen } from "@tests/test-utils";
 import React from "react";
-import { Textarea } from "./Textarea";
+import { Textarea } from "./textarea";
 
 describe("Textarea component", () => {
   it("renders without crashing", () => {

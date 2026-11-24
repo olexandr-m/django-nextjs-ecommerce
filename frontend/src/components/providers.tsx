@@ -1,6 +1,6 @@
 "use client";
 
-import { ToastProvider } from "@/components/shared/Toast";
+import { ToastProvider } from "@/components/shared/toast";
 import ReduxProvider from "@/lib/redux/provider";
 
 type ProvidersProps = {

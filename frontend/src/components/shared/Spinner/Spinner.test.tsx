@@ -1,6 +1,6 @@
 import { render, screen } from "@tests/test-utils";
-import { Spinner } from "./Spinner";
-import styles from "./Spinner.module.css";
+import { Spinner } from "./spinner";
+import styles from "./spinner.module.css";
 
 describe("Spinner", () => {
   it("is accessible with role=status and sr-only text", () => {

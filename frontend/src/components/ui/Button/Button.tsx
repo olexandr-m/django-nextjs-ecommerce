@@ -1,10 +1,10 @@
 "use client";
 
-import { Spinner } from "@/components/shared/Spinner";
+import { Spinner } from "@/components/shared/spinner";
 import { cn } from "@/lib/utils/cn";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
-import styles from "./Button.module.css";
+import styles from "./button.module.css";
 
 const VARIANTS = {
   variant: {

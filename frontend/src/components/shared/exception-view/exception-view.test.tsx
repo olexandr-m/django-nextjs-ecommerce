@@ -1,5 +1,5 @@
 import { render, screen } from "@tests/test-utils";
-import { ExceptionView } from "./ExceptionView";
+import { ExceptionView } from "./exception-view";
 
 const mockProps = {
   code: "404",

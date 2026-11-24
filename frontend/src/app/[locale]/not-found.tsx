@@ -1,4 +1,4 @@
-import { ExceptionView } from "@/components/shared/ExceptionView";
+import { ExceptionView } from "@/components/shared/exception-view";
 import { createMetadata } from "@/utils";
 import { getTranslations } from "next-intl/server";
 

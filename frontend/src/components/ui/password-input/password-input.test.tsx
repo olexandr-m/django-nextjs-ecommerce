@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { fireEvent, render, screen } from "@tests/test-utils";
 import React from "react";
-import { PasswordInput } from "./PasswordInput";
+import { PasswordInput } from "./password-input";
 
 describe("PasswordInput component", () => {
   it("renders without crashing", () => {

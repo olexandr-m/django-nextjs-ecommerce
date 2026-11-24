@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils/cn";
 import * as React from "react";
-import styles from "./Input.module.css";
+import styles from "./input.module.css";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   endIcon?: React.ReactNode;

@@ -1,10 +1,10 @@
 "use client";
 
-import { Input } from "@/components/ui/Input";
+import { Input } from "@/components/ui/input";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import * as React from "react";
 import { useState } from "react";
-import styles from "./PasswordInput.module.css";
+import styles from "./password-input.module.css";
 
 export type PasswordInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 

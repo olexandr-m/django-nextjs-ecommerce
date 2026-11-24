@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
-import styles from "./Spinner.module.css";
+import styles from "./spinner.module.css";
 
 interface SpinnerProps {
   size?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl";

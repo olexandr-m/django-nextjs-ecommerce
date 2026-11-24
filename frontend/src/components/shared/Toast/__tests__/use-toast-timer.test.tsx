@@ -1,4 +1,4 @@
-import { useToastTimer } from "@/components/shared/Toast/useToastTimer";
+import { useToastTimer } from "@/components/shared/toast/use-toast-timer";
 import { act, renderHook } from "@tests/test-utils";
 
 describe("useToastTimer", () => {

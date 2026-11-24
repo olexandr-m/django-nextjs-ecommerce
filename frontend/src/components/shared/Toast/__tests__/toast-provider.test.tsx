@@ -1,6 +1,6 @@
-vi.unmock("@/components/shared/Toast");
+vi.unmock("@/components/shared/toast");
 
-import { ToastProvider, useToast } from "@/components/shared/Toast";
+import { ToastProvider, useToast } from "@/components/shared/toast";
 import { act, fireEvent, render, renderHook, screen } from "@tests/test-utils";
 
 function TestComponent({

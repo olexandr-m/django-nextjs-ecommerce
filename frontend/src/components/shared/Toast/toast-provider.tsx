@@ -2,7 +2,7 @@
 
 import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from "react";
 import { Toast, ToastType, ToastVariant } from "./";
-import styles from "./Toast.module.css";
+import styles from "./toast.module.css";
 
 type ToastContextType = {
   showToast: (message: string, type?: ToastVariant, duration?: number) => void;

@@ -2,7 +2,7 @@
 
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import { ToastVariant, useToastTimer } from "./";
-import styles from "./Toast.module.css";
+import styles from "./toast.module.css";
 
 interface Props {
   message: string;

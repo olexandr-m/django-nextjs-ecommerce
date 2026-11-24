@@ -1,7 +1,7 @@
-vi.unmock("@/components/shared/Toast");
+vi.unmock("@/components/shared/toast");
 
-import { Toast } from "@/components/shared/Toast";
-import styles from "@/components/shared/Toast/Toast.module.css";
+import { Toast } from "@/components/shared/toast";
+import styles from "@/components/shared/toast/toast.module.css";
 import { act, fireEvent, render, screen } from "@tests/test-utils";
 
 const DEFAULT_PROPS = {
