@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 
 vi.mock("@/components/layouts/main", () => ({
   MainNavbar: () => <nav data-testid="mock-navbar" />,
+  MainFooter: () => <nav data-testid="mock-footer" />,
 }));
 
 describe("MainLayout", () => {
@@ -22,5 +23,6 @@ describe("MainLayout", () => {
 
     const { getByTestId } = render(result);
     expect(getByTestId("mock-navbar")).toBeDefined();
+    expect(getByTestId("mock-footer")).toBeDefined();
   });
 });

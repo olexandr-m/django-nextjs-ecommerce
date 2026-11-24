@@ -22,3 +22,19 @@ export const mainNavbarLinks: LayoutLinks[] = [
   { id: "blog", path: "/", labelKey: "blog" },
   { id: "contacts", path: "/", labelKey: "contacts" },
 ];
+
+export const mainFooterUsefulLinks: LayoutLinks[] = [
+  { id: "account", path: "/", labelKey: "account" },
+  { id: "sign_in", path: "/", labelKey: "sign_in" },
+  { id: "cart", path: "/", labelKey: "cart" },
+  { id: "wish_list", path: "/", labelKey: "wish_list" },
+  { id: "compare_products", path: "/", labelKey: "compare_products" },
+];
+
+export const mainFooterInformationLinks: LayoutLinks[] = [
+  { id: "about", path: "/", labelKey: "about" },
+  { id: "contacts", path: "/", labelKey: "contacts" },
+  { id: "faq", path: "/", labelKey: "faq" },
+  { id: "products", path: "/", labelKey: "latest_products" },
+  { id: "track", path: "/", labelKey: "order_track" },
+];
