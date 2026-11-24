@@ -1,0 +1,46 @@
+.wrapper {
+  margin-bottom: var(--space-2);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-1);
+}
+
+.label {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--text-main);
+}
+
+.link {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--brand-orange);
+  transition: color var(--timing-base);
+}
+
+.link:hover {
+  color: var(--text-main);
+  opacity: 1;
+}
+
+.inputContainer {
+  margin-top: var(--space-1);
+}
+
+.error {
+  display: block;
+  margin-top: var(--space-1);
+  padding-left: var(--space-1);
+  font-size: 0.875rem;
+  color: var(--color-error);
+}
+
+.passwordPadding {
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
