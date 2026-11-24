@@ -96,7 +96,7 @@ vi.mock("next/image", () => {
   };
 });
 
-vi.mock("@/components/shared/Toast", () => {
+vi.mock("@/components/shared/toast", () => {
   return {
     useToast: () => ({ showToast: showToastMock }),
   };
