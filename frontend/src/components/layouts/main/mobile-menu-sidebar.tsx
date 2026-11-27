@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { LocaleDropdown } from "@/components/shared/locale-dropdown";
 
 export default function MobileMenuSidebar() {
   const uniqueId = React.useId();
@@ -76,7 +77,9 @@ export default function MobileMenuSidebar() {
                   </div>
 
                   <div className="cart-holder d-flex align-items-center justify-content-end gap-2 shrink-0">
-                    <div className="locale-wrapper"></div>
+                    <div className="locale-wrapper">
+                      <LocaleDropdown />
+                    </div>
 
                     <Link
                       className="cart cart-icon position-relative"

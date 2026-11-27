@@ -2,6 +2,10 @@ import MobileMenuSidebar from "../mobile-menu-sidebar";
 import translations from "@/locales/en/common.json";
 import { fireEvent, render, screen, setMessages } from "@tests/test-utils";
 
+vi.mock("@/components/shared/locale-dropdown", () => ({
+  LocaleDropdown: () => <div data-testid="mock-locale-dropdown" />,
+}));
+
 const locale_keys: (keyof typeof translations.main_layout)[] = [
   "home",
   "shop",
@@ -22,6 +26,12 @@ describe("MobileMenuSidebar", () => {
   beforeEach(() => {
     setMessages({});
     vi.resetAllMocks();
+  });
+
+  it("renders child components", () => {
+    const { getByTestId } = render(<MobileMenuSidebar />);
+
+    expect(getByTestId("mock-locale-dropdown")).toBeDefined();
   });
 
   it("renders with correct translations when locale is en", () => {

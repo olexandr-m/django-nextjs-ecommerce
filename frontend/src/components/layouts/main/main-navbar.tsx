@@ -7,6 +7,7 @@ import { LayoutLinks } from "@/types";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { LocaleDropdown } from "@/components/shared/locale-dropdown";
 
 export default function MainNavbar() {
   const t = useTranslations("common.main_layout");
@@ -56,6 +57,9 @@ export default function MainNavbar() {
                           style={{ height: "26px" }}
                         >
                           <div className="d-flex align-items-center items-center">
+                            <div className="language two d-flex align-items-center h-100">
+                              <LocaleDropdown />
+                            </div>
                             <div>
                               <div>
                                 <Link href="/register" role="button">

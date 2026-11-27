@@ -1,0 +1,75 @@
+.container {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.trigger:hover {
+  background-color: #f9fafb;
+}
+
+.trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 80px;
+  z-index: 50;
+  margin-top: 0.25rem;
+  min-width: 6rem;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0.25rem 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.option:hover,
+.option:focus {
+  background-color: #f3f4f6;
+}
+
+.active {
+  font-weight: 700;
+  background-color: #f9fafb;
+}
+
+.chevron {
+  width: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.spinnerIcon svg {
+  stroke: #333;
+  fill: none;
+}

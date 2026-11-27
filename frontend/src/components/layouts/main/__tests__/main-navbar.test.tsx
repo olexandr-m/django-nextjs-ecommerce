@@ -6,6 +6,10 @@ vi.mock("../sticky-navbar", () => ({
   default: () => <div data-testid="mock-sticky-navbar" />,
 }));
 
+vi.mock("@/components/shared/locale-dropdown", () => ({
+  LocaleDropdown: () => <div data-testid="mock-locale-dropdown" />,
+}));
+
 const locale_keys: (keyof typeof translations.main_layout)[] = [
   "welcome",
   "register",
@@ -35,6 +39,7 @@ describe("MainNavbar", () => {
       const { getByTestId } = render(element);
 
       expect(getByTestId("mock-sticky-navbar")).toBeDefined();
+      expect(getByTestId("mock-locale-dropdown")).toBeDefined();
     });
 
     it("renders with correct translations when locale is en", () => {
