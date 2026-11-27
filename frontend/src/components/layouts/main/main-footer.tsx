@@ -15,7 +15,7 @@ export default async function MainFooter() {
             width={200}
             alt="Footer shape"
             src="/assets/images/home-page/footer-shape-1.png"
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "100%", height: "auto", aspectRatio: "200 / 100" }}
           />
         </div>
 
