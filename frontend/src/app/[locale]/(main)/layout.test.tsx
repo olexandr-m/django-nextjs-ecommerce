@@ -4,6 +4,7 @@ import { render } from "@testing-library/react";
 vi.mock("@/components/layouts/main", () => ({
   MainNavbar: () => <nav data-testid="mock-navbar" />,
   MainFooter: () => <nav data-testid="mock-footer" />,
+  MobileMenuSidebar: () => <nav data-testid="mock-sidebar" />,
 }));
 
 describe("MainLayout", () => {
@@ -24,5 +25,6 @@ describe("MainLayout", () => {
     const { getByTestId } = render(result);
     expect(getByTestId("mock-navbar")).toBeDefined();
     expect(getByTestId("mock-footer")).toBeDefined();
+    expect(getByTestId("mock-sidebar")).toBeDefined();
   });
 });

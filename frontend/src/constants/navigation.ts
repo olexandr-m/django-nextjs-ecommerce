@@ -38,3 +38,27 @@ export const mainFooterInformationLinks: LayoutLinks[] = [
   { id: "products", path: "/", labelKey: "latest_products" },
   { id: "track", path: "/", labelKey: "order_track" },
 ];
+
+export const mainSidebarLinks: LayoutLinks[] = [
+  { id: "home", path: "/", labelKey: "home" },
+  { id: "shop", path: "/", labelKey: "shop" },
+  {
+    id: "categories",
+    labelKey: "categories",
+    className: "megamenu",
+    children: [],
+  },
+  {
+    id: "pages",
+    labelKey: "pages",
+    children: [
+      { id: "cart", path: "/", labelKey: "cart" },
+      { id: "wish_list", path: "/", labelKey: "wish_list" },
+      { id: "compare_products", path: "/", labelKey: "compare_products" },
+      { id: "order_track", path: "/", labelKey: "order_track" },
+      { id: "account", path: "/", labelKey: "account" },
+    ],
+  },
+  { id: "blog", path: "/", labelKey: "blog" },
+  { id: "contacts", path: "/", labelKey: "contacts" },
+];
