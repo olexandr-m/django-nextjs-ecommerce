@@ -1,5 +1,6 @@
 "use client";
 
+import StickyNavbar from "./sticky-navbar";
 import { mainNavbarLinks } from "@/constants";
 import { Link } from "@/lib/i18n/routing";
 import { LayoutLinks } from "@/types";
@@ -146,6 +147,8 @@ export default function MainNavbar() {
             </div>
           </div>
         </div>
+
+        <StickyNavbar />
       </header>
     </>
   );

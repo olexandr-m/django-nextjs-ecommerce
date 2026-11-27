@@ -2,6 +2,10 @@ import translations from "@/locales/en/common.json";
 import { render, screen, setMessages } from "@tests/test-utils";
 import MainNavbar from "../main-navbar";
 
+vi.mock("../sticky-navbar", () => ({
+  default: () => <div data-testid="mock-sticky-navbar" />,
+}));
+
 const locale_keys: (keyof typeof translations.main_layout)[] = [
   "welcome",
   "register",
@@ -25,6 +29,14 @@ describe("MainNavbar", () => {
   });
 
   describe("rendering", () => {
+    it("renders child components", () => {
+      const element = MainNavbar();
+
+      const { getByTestId } = render(element);
+
+      expect(getByTestId("mock-sticky-navbar")).toBeDefined();
+    });
+
     it("renders with correct translations when locale is en", () => {
       setMessages(translations.main_layout);
       const element = MainNavbar();
